@@ -6,7 +6,6 @@
     <title>Fashion Store</title>
     <!-- <link rel="stylesheet" href="output-style.css"> -->
     <link rel="stylesheet" type="text/css" href="./build.css">
-    <script src="../src/script.js"></script>
 </head>
 <body class="font-poppins">
     
@@ -17,10 +16,10 @@
                 <!-- <img src="logo.avif"  class="h-28 rounded-full "/> -->
                 <ul class="md:flex md:items-center md:flex-row md:mt-0 text-xl font-bold hidden flex-col items-center mt-10" id="navbar">
     
-                    <li class="list-none inline-block mx-4  my-6 md:my-0 "><a href="#" class="no-underline text-black px-2 md:hover:text-white hover:text-black/50 tracking-wider">Home</a></li>
-                    <li class="list-none inline-block mx-4 my-6 md:my-0"><a href="#" class="no-underline text-black px-2 md:hover:text-white hover:text-black/50 tracking-wider">About</a></li>
-                    <li class="list-none inline-block mx-4  my-6 md:my-0"><a href="#" class="no-underline text-black px-2 md:hover:text-white hover:text-black/50 tracking-wider">Features</a></li>
-                    <li class="list-none inline-block mx-4 my-6 md:my-0"><a href="#" class="no-underline text-black px-2 md:hover:text-white hover:text-black/50 tracking-wider">Contact</a></li>
+                    <li class="list-none inline-block mx-4  my-6 md:my-0" onclick="closeNavbar()"><a href="" class="no-underline text-black px-2 md:hover:text-white hover:text-black/50 tracking-wider">Home</a></li>
+                    <li class="list-none inline-block mx-4 my-6 md:my-0" onclick="closeNavbar()"><a href="" class="no-underline text-black px-2 md:hover:text-white hover:text-black/50 tracking-wider">About</a></li>
+                    <li class="list-none inline-block mx-4  my-6 md:my-0" onclick="closeNavbar()"><a href="" class="no-underline text-black px-2 md:hover:text-white hover:text-black/50 tracking-wider">Features</a></li>
+                    <li class="list-none inline-block mx-4 my-6 md:my-0" onclick="closeNavbar()"><a href="#subscribe" class="no-underline text-black px-2 md:hover:text-white hover:text-black/50 tracking-wider">Contact</a></li>
                     <li class="hidden md:block"><img src="cart.png" class="w-8 cursor-pointer " /></li>
                     
                 </ul>
@@ -374,7 +373,7 @@
     <div class="rounded-lg shadow-lg my-20  flex flex-row mx-7 ">
         <div class="lg:w-3/5 w-full bg-gradient-to-r from-black to-purple-900 lg:from-black lg:via-purple-900 lg:to-transparent rounded-lg justify-center text-gray-100 p-12">
             <div class="lg:w-1/2">
-                <h2 class="text-2xl font-extrabold mb-4 ">Subscribe To Get Our Offers First</h2>
+                <h2 class="text-2xl font-extrabold mb-4 " id="subscribe">Subscribe To Get Our Offers First</h2>
                 <p class="mb-4 leading-relaxed ">Want To Hear from Us When We Have Offers? Sign Up For Our Newsletter And We Will Email You Every Time We Have New Sale Offers.</p>
                 <div>
                     <input type="email" placeholder="Enter Email Adress" class="bg-gray-600 text-gray-200 placeholder-gray-400 px-4 py-3 w-full rounded-lg focus:outline-none mb-4 " />
@@ -397,5 +396,43 @@
         <p>@ Copyright Reserved 2023</p>
 
     </div><!--fotter section-->
+
+    <script>
+        function buttonPressed() {
+  var nav = document.getElementById("navbar");
+  var background = document.getElementById("background-navbar");
+  var icon = document.getElementById("icon");
+  if (window.innerWidth < 768) {
+    if (nav.style.display == "flex") {
+      nav.style.display = "none";
+      background.style.height = "10vh";
+      background.style.backgroundColor = "rgb(255, 255, 255, 0.5)";
+      icon.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /> </svg>';
+    } else {
+      nav.style.display = "flex";
+      background.style.height = "400px";
+      background.style.backgroundColor = "#ffffff";
+      icon.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /> </svg>';
+    }
+  }
+}
+
+function closeNavbar() {
+  var nav = document.getElementById("navbar");
+  var background = document.getElementById("background-navbar");
+  var icon = document.getElementById("icon");
+
+  if (window.innerWidth < 768) {
+    nav.style.display = "none";
+    background.style.height = "10vh";
+    background.style.backgroundColor = "rgb(255, 255, 255, 0.5)";
+    icon.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /> </svg>';
+  }
+}
+
+    </script>
 </body>
 </html>
